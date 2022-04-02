@@ -1,13 +1,231 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --color-primary: #f44336;
+    --color-primary-variant: #6745cf;
+    --color-white: #fff;
+    --color-light: rgba(var(--color-white), 0.7);
+    --color-black: #000;
+    --color-dark: rgba(var(--color-black), 0.7);
+
+    --color-border: #ddd;
+
+    --container-lg: 70%;
+    --container-md: 85%;
+
+}
+
+body {
+    background: var(--color-primary-variant);
+    font-family: 'Patrick Hand', cursive;
+}
+
+.container {
+    width: var(--container-lg);
+    margin: 0 auto;
+
+
+}
+
+h1 {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2rem 0;
+    color: var(--color-white);
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-variant);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-light);
+}
+
+
+/* ================== Todo =============== */
+.todo {
+    background: var(--color-white);
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px var(--color-border);
+}
+
+header {
+    position: relative;
+    font-size: 2rem;
+    color: var(--color-primary-variant);
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+header span {
+    float: right;
+    font-size: 1.7rem;
+}
+
+header p {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--color-dark);
+}
+
+header button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -25px;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    font-size: 2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+
+header button.show {
+    transform: rotate(45deg);
+}
+
+ul {
+    padding: 2rem 0;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.todo__item {
+    position: relative;
+    padding: .8rem 3rem .8rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-dark);
+}
+
+.todo__item input {
+    margin-right: 10px;
+}
+
+.todo__item.done {
+    text-decoration: line-through;
+}
+
+.todo__item strong {
+    float: right;
+}
+
+.todo__item label {
+    cursor: pointer;
+}
+
+.todo__item.done strong {
+    text-decoration: line-through;
+}
+
+.todo__item .btn-delete {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.todo__total {
+    color: var(--color-primary);
+}
+
+.todo__none {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.todo__none p {
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.todo__action {
+    border-bottom: 2px solid var(--color-primary);
+    height: 0;
+    padding: 0 1.5rem;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
+
+}
+
+.todo__action.show {
+    height: 110px;
+    padding: 2.8rem 1.5rem 0.8rem 1.5rem;
+}
+
+.todo__action .frm {
+    display: flex;
+}
+
+.todo__action .frm input {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    font-size: 1.3rem;
+    padding: 0.5rem 1.2rem
+}
+
+.todo__action .frm button {
+    padding: 0.5rem 1.2rem;
+    background: var(--color-primary-variant);
+    color: var(--color-white);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.frm__time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.frm__time select {
+    border: 1px solid var(--color-border);
+    height: 100%;
+}
+
+.frm__time select option {
+    height: 100%;
 }
